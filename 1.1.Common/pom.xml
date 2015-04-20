@@ -1,0 +1,78 @@
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.cdc</groupId>
+    <artifactId>1.1.Common</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>1.1.Common</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>3.5.5-Final</version>
+        </dependency>
+<!--        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>3.0.5.RELEASE</version>
+        </dependency>-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>3.0.5.RELEASE</version>
+        </dependency>
+    </dependencies>
+  
+    <build>		<!-- 默认源代码和资源文件目录配置 -->		
+        <sourceDirectory>src/main/java </sourceDirectory>		
+        <testSourceDirectory>src/test/java</testSourceDirectory>		
+        <resources>			
+            <resource>				
+                <directory>src/main/resources</directory>			
+            </resource>		
+        </resources>		
+        <testResources>			
+            <testResource>				
+                <directory>src/test/resources</directory>			
+            </testResource>		
+        </testResources>		<!-- 扩展源代码和资源文件目录 -->		
+        <plugins>			
+            <plugin>				
+                <groupId>org.codehaus.mojo</groupId>				
+                <artifactId>build-helper-maven-plugin</artifactId>				
+                <version>1.7</version>				
+                <executions>					
+                    <execution>						
+                        <id>add-source</id>						
+                        <phase>generate-sources</phase>						
+                        <goals>							
+                            <goal>add-source</goal>						
+                        </goals>						
+                        <configuration>
+                            <sources>								<!-- 我们可以通过在这里添加多个source节点，来添加任意多个源文件夹 -->								
+                                <source>${basedir}/src/main/java/common</source>
+                                <source>${basedir}/src/main/java/service</source>
+                            </sources>						
+                        </configuration>					
+                    </execution>
+                </executions>			
+            </plugin>		
+        </plugins>	
+    </build>
+</project>
