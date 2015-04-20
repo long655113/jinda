@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="org.trustel.common">
+   <!-- 消息资源信息 -->
+  <class name="Message" table="system_messages">
+    <!-- 消息编码 -->
+    <id name="code" type="string">
+        <column name="code" sql-type="char(8)" not-null="true" />
+        <generator class="org.trustel.service.id.IDGenerator" />
+    </id>
+
+    <!-- 消息名称 -->
+    <property column="name" length="30" name="name" not-null="false" type="string" />
+    <!-- 语言 -->
+    <property column="lang" length="5" name="lang" not-null="false" type="string" />
+    <!-- 描述 -->
+    <property column="description" length="512" name="description" not-null="false" type="string" />
+  </class>
+  <!-- 语言定义 -->
+  <class name="Language" table="system_languages">
+    <!-- 编码 -->
+    <id name="code" type="string">
+        <column name="code" sql-type="varchar2(5)" not-null="true" />
+        <generator class="assigned" />
+    </id>
+
+    <!-- 名称 -->
+    <property column="name" length="32" name="name" not-null="false" type="string" />
+    <!-- 代码页 -->
+    <property column="code_page" name="codePage" not-null="false" type="int" />
+  </class>
+
+
+</hibernate-mapping>
