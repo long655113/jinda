@@ -1,0 +1,51 @@
+package org.trustel.common;
+
+public class Text {
+
+	/**
+	 * ”Ô—‘
+	 */
+	private String lang = "zh_CN";
+
+	/**
+	 * √Ë ˆ–≈œ¢
+	 */
+	private String description;
+
+	/**
+	 * 
+	 * @return ”Ô—‘(lang<--lang)
+	 */
+	public String getLang() {
+		return lang;
+	}
+
+	/**
+	 * 
+	 * @return √Ë ˆ–≈œ¢(description<--description)
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * …Ë÷√”Ô—‘
+	 * 
+	 * @param ”Ô—‘
+	 *            (lang-->lang)
+	 */
+	public void setLang(String lang) {
+		this.lang = lang;
+	}
+
+	/**
+	 * …Ë÷√√Ë ˆ–≈œ¢
+	 * 
+	 * @param √Ë ˆ–≈œ¢
+	 *            (description-->description)
+	 */
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+}
