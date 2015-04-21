@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="org.trustel.system">
+   <!-- 系统区域信息 -->
+  <class name="SystemRegion" table="system_regions">
+    <!-- 编码 -->
+    <id name="id" type="int">
+        <column name="id" sql-type="int" not-null="true" />
+        <generator class="assigned" />
+    </id>
+
+    <!-- 上级节点编码 -->
+    <property column="parentid" name="parentId" not-null="false" type="int" />
+    <!-- 所在级别 -->
+    <property column="rank" name="rank" not-null="false" type="int" />
+    <!-- 区号 -->
+    <property column="postcode" length="6" name="postcode" not-null="false" type="string" />
+    <!-- 显示序号 -->
+    <property column="seq" name="seq" not-null="false" type="int" />
+    <!-- 一级编码 -->
+    <property column="rank1" name="rank1" not-null="false" type="int" />
+    <!-- 二级编码 -->
+    <property column="rank2" name="rank2" not-null="false" type="int" />
+    <!-- 三级编码 -->
+    <property column="rank3" name="rank3" not-null="false" type="int" />
+    <!-- 四级编码 -->
+    <property column="rank4" name="rank4" not-null="false" type="int" />
+    <!-- 五级编码 -->
+    <property column="rank5" name="rank5" not-null="false" type="int" />
+    <!-- 六级编码 -->
+    <property column="rank6" name="rank6" not-null="false" type="int" />
+    <!-- 七级编码 -->
+    <property column="rank7" name="rank7" not-null="false" type="int" />
+    <!-- 八级编码 -->
+    <property column="rank8" name="rank8" not-null="false" type="int" />
+    <!-- 九级编码 -->
+    <property column="rank9" name="rank9" not-null="false" type="int" />
+  </class>
+
+  <!-- 区域信息－描述 -->
+  <class name="RegionDescription" table="system_region_descriptions">
+    <!-- 编码 -->
+    <id name="id" type="int">
+        <column name="id" sql-type="int" not-null="true" />
+        <generator class="assigned" />
+    </id>
+
+    <!-- 关联信息 -->
+    <property column="parent_id" name="parentId" not-null="false" type="int" />
+    <!-- 名称 -->
+    <property column="name" length="32" name="name" not-null="false" type="string" />
+    <!-- 语言 -->
+    <property column="lang" length="5" name="lang" not-null="false" type="string" />
+    <!-- 描述 -->
+    <property column="description" length="256" name="description" not-null="false" type="string" />
+  </class>
+
+ 
+</hibernate-mapping>

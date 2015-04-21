@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="org.trustel.account">
+  <!-- 系统帐号信息 -->
+  <class name="SystemAccount" table="system_accounts">
+    <!-- 帐号编码 -->
+    <id name="code" type="string">
+        <column name="code" sql-type="char(12)" not-null="true" />
+        <generator class="org.trustel.service.id.Enhanced7Plus5Generator" />
+    </id>
+    <!-- 姓名显示方式 -->
+    <property column="display" name="display" not-null="false" type="int" />
+    <!-- 姓 -->
+    <property column="last_name" length="16" name="lastName" not-null="false" type="string" />
+    <!-- 名 -->
+    <property column="first_name" length="16" name="firstName" not-null="false" type="string" />
+    <!-- 昵称 -->
+    <property column="nickname" length="32" name="nickName" not-null="false" type="string" />
+    <!-- 缺省图像 -->
+    <property column="photo" length="64" name="photo" not-null="false" type="string" />
+    <!-- 登陆名称/帐号 -->
+    <property column="account" length="32" name="account" not-null="false" type="string" />
+    <!-- 密码类型 -->
+    <property column="passwod_category" name="passwodCategory" not-null="false" type="int" />
+    <!-- 密码 -->
+    <property column="password" length="32" name="password" not-null="false" type="string" />
+    <!-- 密码过期时间 -->
+    <property column="deadline" name="deadline" not-null="false" type="timestamp" />
+    <!-- 联系电话 -->
+    <property column="mobile" length="21" name="mobile" not-null="false" type="string" />
+    <!-- 公司电话 -->
+    <property column="TEL" length="14" name="tel" not-null="false" type="string" />
+    <!-- 公司传真 -->
+    <property column="TAX" length="14" name="tax" not-null="false" type="string" />
+    <!-- 邮编 -->
+    <property column="POST_CODE" length="8" name="postCode" not-null="false" type="string" />
+    <!-- 联系邮箱 -->
+    <property column="email" length="64" name="email" not-null="false" type="string" />
+    <!-- 所属组织 -->
+    <property column="region_id" name="regionId" not-null="false" type="int" />
+    <!-- 缺省样式 -->
+    <property column="theme" length="16" name="theme" not-null="false" type="string" />
+    <!-- 缺省语言 -->
+    <property column="language" length="8" name="language" not-null="false" type="string" />
+    <!-- 系统超时 -->
+    <property column="timeout" name="timeout" not-null="false" type="int" />
+    <!-- 帐号状态 -->
+    <property column="status" name="status" not-null="false" type="int" />
+    <!-- 角色 -->
+    <property column="role_code" length="8" name="roleCode" not-null="false" type="string" />
+    <!-- 开始时间 -->
+    <property column="START_DATE" name="startDate" not-null="false" type="timestamp" />
+    <!-- 结束时间 -->
+    <property column="END_DATE" name="endDate" not-null="false" type="timestamp" />
+    <!-- 最近登陆时间 -->
+    <property column="last_access_time" name="timeOfLastAccess" not-null="false" type="timestamp" />
+    <!-- 登陆IP -->
+    <property column="ip" length="16" name="ip" not-null="false" type="string" />
+    <!-- 剩余使用次数 -->
+    <property column="availables" name="availables" not-null="false" type="int" />
+    <!-- MD5加密用 -->
+    <property column="SALT" length="8" name="salt" not-null="false" type="string" />
+    <!-- 商家id -->
+    <property column="merchant_id" length="20" name="merchantId" not-null="false" type="string" />
+  </class>
+</hibernate-mapping>

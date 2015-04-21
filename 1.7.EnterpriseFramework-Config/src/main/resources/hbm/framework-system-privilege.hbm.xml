@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="org.trustel.privilege">
+  <!-- 系统菜单 -->
+  <class name="SystemMenu" table="system_menus">
+    <!-- 控制器编码 -->
+    <id name="code" type="string">
+        <column name="code" sql-type="varchar2(30)" not-null="true" />
+        <generator class="assigned" />
+    </id>
+
+    <!-- 所属控制器 -->
+    <property column="ucode" length="30" name="ucode" not-null="false" type="string" />
+    <!-- 状态 -->
+    <property column="status" name="status" not-null="false" type="int" />
+    <!-- 显示顺序 -->
+    <property column="seq" name="seq" not-null="false" type="int" />
+  </class>
+  <!-- 系统菜单描述 -->
+  <class name="MenuDescription" table="system_menu_descriptions">
+    <!-- 编码 -->
+    <id name="code" type="string">
+        <column name="code" sql-type="char(8)" not-null="true" />
+        <generator class="org.trustel.service.id.ID8Generator" />
+    </id>
+
+    <!-- 关联信息 -->
+    <property column="ucode" length="32" name="ucode" not-null="false" type="string" />
+    <!-- 语言 -->
+    <property column="lang" length="5" name="lang" not-null="false" type="string" />
+    <!-- 标题 -->
+    <property column="title" length="32" name="title" not-null="false" type="string" />
+    <!-- 描述 -->
+    <property column="description" length="256" name="description" not-null="false" type="string" />
+  </class>
+
+  <!-- 系统角色 -->
+  <class name="SystemRole" table="system_roles">
+    <!-- 编码 -->
+    <id name="id" type="string">
+        <column name="code" sql-type="char(8)" not-null="true" />
+        <generator class="org.trustel.service.id.ID8Generator" />
+    </id>
+
+    <!-- 层级 -->
+    <property column="rank" name="rank" not-null="false" type="int" />
+    <!-- 一级编码 -->
+    <property column="rank1" length="8" name="rank1" not-null="false" type="string" />
+    <!-- 二级编码 -->
+    <property column="rank2" length="8" name="rank2" not-null="false" type="string" />
+    <!-- 三级编码 -->
+    <property column="rank3" length="8" name="rank3" not-null="false" type="string" />
+    <!-- 四级编码 -->
+    <property column="rank4" length="8" name="rank4" not-null="false" type="string" />
+    <!-- 五级编码 -->
+    <property column="rank5" length="8" name="rank5" not-null="false" type="string" />
+    <!-- 六级编码 -->
+    <property column="rank6" length="8" name="rank6" not-null="false" type="string" />
+    <!-- 七级编码 -->
+    <property column="rank7" length="8" name="rank7" not-null="false" type="string" />
+    <!-- 八级编码 -->
+    <property column="rank8" length="8" name="rank8" not-null="false" type="string" />
+    <!-- 九级编码 -->
+    <property column="rank9" length="8" name="rank9" not-null="false" type="string" />
+    <!-- 上级编码 -->
+    <property column="ucode" length="8" name="ucode" not-null="false" type="string" />
+  </class>
+
+  <!-- 角色权限信息 -->
+  <class name="PrivilegeOfRole" table="system_role_privileges">
+    <!-- 权限编码 -->
+    <id name="code" type="string">
+        <column name="code" sql-type="char(8)" not-null="true" />
+        <generator class="org.trustel.service.id.ID8Generator" />
+    </id>
+
+    <!-- 角色编码 -->
+    <property column="role_code" length="8" name="roleCode" not-null="false" type="string" />
+    <!-- 权限编码 -->
+    <property column="privilege_code" length="32" name="privilegeCode" not-null="false" type="string" />
+  </class>
+
+</hibernate-mapping>
